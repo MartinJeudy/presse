@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hormur dans les médias - La révolution culturelle dont parlent France 2, TF1, France Inter, Le Monde et plus de 15 médias nationaux.">
+    <title>Hormur dans les médias - La révolution culturelle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #ee6553;
+            --secondary-color: #323242;
+            --light-bg: #f9f7f6;
+            --white: #ffffff;
+            --text-gray: #6b6b6b;
+            --gradient: linear-gradient(135deg, #ee6553 0%, #ff8a7a 100%);
+        }
+        
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            color: var(--secondary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-button {
+            background: var(--gradient);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .hero {
+            background: var(--gradient);
+            padding: 140px 20px 80px;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 24px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .media-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .media-logo {
+            background: rgba(255,255,255,0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            transition: all 0.3s;
+        }
+        
+        .media-logo:hover {
+            transform: scale(1.1);
+            background: var(--white);
+        }
+        
+        .stats {
+            background: var(--white);
+            padding: 60px 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 18px;
+        }
+        
+        .featured-media {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-header h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-gray);
+        }
+        
+        .featured-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 40px;
+        }
+        
+        .featured-item {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 250px;
+        }
+        
+        .featured-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .featured-media-logo {
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            color: var(--white);
+            font-size: 32px;
+            font-weight: 900;
+        }
+        
+        .featured-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .media-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        
+        .featured-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .featured-description {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .featured-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+        
+        .featured-link:hover {
+            gap: 15px;
+        }
+        
+        .video-showcase {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+        
+        .video-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-item {
+            background: var(--light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .video-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .video-embed {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+        }
+        
+        .video-placeholder {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .video-channel {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+        
+        .press-articles {
+            background: var(--light-bg);
+            padding: 80px 20px;
+        }
+        
+        .articles-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .article-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .article-source {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .article-title {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .article-excerpt {
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .article-date {
+            color: var(--text-gray);
+            font-size: 13px;
+            margin-top: 15px;
+        }
+        
+        .cta {
+            background: var(--gradient);
+            padding: 100px 20px;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        .cta-btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 18px;
+            }
+            
+            .featured-item {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-media-logo {
+                padding: 30px;
+                font-size: 24px;
+            }
+            
+            .cta h2 {
+                font-size: 32px;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="/" class="logo">HORMUR</a>
+            <a href="https://hormur.com/signup" class="nav-button">Rejoindre Hormur</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>La révolution culturelle qui fait parler</h1>
+            <p class="hero-subtitle">Plus de 15 médias nationaux racontent notre histoire</p>
+            
+            <div class="media-logos">
+                <div class="media-logo">France 2</div>
+                <div class="media-logo">TF1</div>
+                <div class="media-logo">France Inter</div>
+                <div class="media-logo">Le Monde</div>
+                <div class="media-logo">BFM</div>
+                <div class="media-logo">LCI</div>
+                <div class="media-logo">Le Figaro</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Médias nationaux</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">10M+</div>
+                <div class="stat-label">Personnes touchées</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">20min</div>
+                <div class="stat-label">D'antenne sur France Inter</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">7min</div>
+                <div class="stat-label">Reportage France 2</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-media">
+        <div class="section-header">
+            <h2>Nos apparitions majeures</h2>
+            <p>Les grands médias français parlent de la révolution Hormur</p>
+        </div>
+        
+        <div class="featured-grid">
+            <div class="featured-item">
+                <div class="featured-media-logo">FRANCE 2</div>
+                <div class="featured-content">
+                    <span class="media-badge">REPORTAGE EXCLUSIF</span>
+                    <h3 class="featured-title">Une idée pour la France</h3>
+                    <p class="featured-description">Un reportage de 7 minutes dédié à Hormur dans l'émission phare de France 2. Une immersion dans notre vision de la culture accessible à tous.</p>
+                    <a href="https://www.franceinfo.fr/societe/hormur-l-application-qui-vous-propose-d-accueillir-des-evenements-culturels-dans-votre-salon_7480576.html" target="_blank" class="featured-link">
+                        Voir le reportage →
+                    </a>
+                </div>
+            </div>
+            
+            <div class="featured-item">
+                <div class="featured-media-logo">FRANCE INTER</div>
+                <div class="featured-content">
+                    <span class="media-badge">INTERVIEW EXCLUSIVE</span>
+                    <h3 class="featured-title">Carnet de Campagne</h3>
+                    <p class="featured-description">13 minutes d'antenne avec notre fondateur Martin Jeudy. Une discussion profonde sur l'art hors les murs et notre mission sociale.</p>
+                    <a href="https://www.radiofrance.fr/franceinter/podcasts/carnets-de-campagne/carnets-de-campagne-du-vendredi-30-mai-2025-2748973" target="_blank" class="featured-link">
+                        Écouter l'émission →
+                    </a>
+                </div>
+            </div>
+            
+            <div class="featured-item">
+                <div class="featured-media-logo">LE MONDE</div>
+                <div class="featured-content">
+                    <span class="media-badge">ARTICLE DE FOND</span>
+                    <h3 class="featured-title">L'art s'invite dans les salons</h3>
+                    <p class="featured-description">Le journal de référence analyse le phénomène Hormur et son impact sur la démocratisation culturelle en France.</p>
+                    <a href="https://drive.google.com/file/d/1mdhu3EakqxoC1OoyvtAxoKDijylH7wD4/view" target="_blank" class="featured-link">
+                        Lire l'article →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-showcase">
+        <div class="section-header">
+            <h2>Hormur à la télévision</h2>
+            <p>Découvrez nos passages TV les plus marquants</p>
+        </div>
+        
+        <div class="video-grid">
+            <div class="video-item">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/ITcrkwvEUIk" frameborder="0" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3 class="video-title">LCI - L'innovation culturelle</h3>
+                    <p class="video-channel">La Chaîne Info</p>
+                </div>
+            </div>
+            
+            <div class="video-item">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/PO3JuO1S3-Q" frameborder="0" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3 class="video-title">France TV Tours - Reportage régional</h3>
+                    <p class="video-channel">France Télévisions</p>
+                </div>
+            </div>
+            
+            <div class="video-item">
+                <div class="video-placeholder">
+                    <div style="text-align: center;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">📺</div>
+                        <p>JT de France 2</p>
+                        <a href="https://drive.google.com/file/d/12DMQUnqNWitI1lt5UnGgszT-hD2_j5CA/view" target="_blank" style="color: var(--primary-color); margin-top: 10px; display: inline-block;">Voir la vidéo →</a>
+                    </div>
+                </div>
+                <div class="video-info">
+                    <h3 class="video-title">Journal Télévisé de France 2</h3>
+                    <p class="video-channel">France 2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="press-articles">
+        <div class="section-header">
+            <h2>Dans la presse écrite et radio</h2>
+            <p>Les médias analysent le phénomène Hormur</p>
+        </div>
+        
+        <div class="articles-grid">
+            <a href="https://www.tf1.fr/tf1/bonjour-la-matinale-tf1/videos/rendez-vous-culture-hormur-du-stand-up-a-domicile-80946056.html" target="_blank" class="article-card">
+                <div class="article-source">TF1 - LA MATINALE</div>
+                <h3 class="article-title">Du stand-up à domicile avec Hormur</h3>
+                <p class="article-excerpt">TF1 explore comment Hormur révolutionne les soirées culturelles en transformant les salons en scènes artistiques...</p>
+                <p class="article-date">Émission matinale</p>
+            </a>
+            
+            <a href="https://drive.google.com/file/d/184Vij3XF-IRRsg68v9H3aJMiGkE-5uIr/view" target="_blank" class="article-card">
+                <div class="article-source">BFM BUSINESS</div>
+                <h3 class="article-title">Le business model innovant d'Hormur</h3>
+                <p class="article-excerpt">BFM Business décrypte le modèle économique unique qui permet à Hormur de créer de la valeur pour tous les acteurs...</p>
+                <p class="article-date">Émission économique</p>
+            </a>
+            
+            <a href="https://www.radiofrance.fr/franceinter/podcasts/un-monde-nouveau/un-monde-nouveau-du-mardi-27-mai-2025-5854317" target="_blank" class="article-card">
+                <div class="article-source">FRANCE INTER</div>
+                <h3 class="article-title">Un monde nouveau avec Hormur</h3>
+                <p class="article-excerpt">L'émission "Un monde nouveau" met en lumière l'innovation sociale portée par Hormur dans le secteur culturel...</p>
+                <p class="article-date">27 mai 2025</p>
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1GJ-Sea5mzTSjrRv0PpCamSzvFUKQxkWQ/view" target="_blank" class="article-card">
+                <div class="article-source">LE FIGARO</div>
+                <h3 class="article-title">Hormur réinvente les soirées culturelles</h3>
+                <p class="article-excerpt">Le Figaro consacre un article de fond à l'émergence d'Hormur et son impact sur les pratiques culturelles...</p>
+                <p class="article-date">Magazine Culture</p>
+            </a>
+            
+            <a href="https://liris.cnrs.fr/actualite/hormur-une-entreprise-sappuyant-sur-travaux-liris-dans-medias" target="_blank" class="article-card">
+                <div class="article-source">CNRS</div>
+                <h3 class="article-title">L'innovation technologique au service de la culture</h3>
+                <p class="article-excerpt">Le CNRS salue la collaboration avec Hormur et l'utilisation de la recherche scientifique pour démocratiser l'art...</p>
+                <p class="article-date">Publication scientifique</p>
+            </a>
+            
+            <a href="https://drive.google.com/file/d/1oanRFeW69uDcwBqM9fXfISS0sYZNe-Fl/view" target="_blank" class="article-card">
+                <div class="article-source">FRANCE BLEU</div>
+                <h3 class="article-title">Direct avec Willy Rovelli</h3>
+                <p class="article-excerpt">Une émission spéciale en direct sur France Bleu avec l'humoriste Willy Rovelli pour parler du concept Hormur...</p>
+                <p class="article-date">Émission radio</p>
+            </a>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-content">
+            <h2>Rejoignez le mouvement</h2>
+            <p>Faites partie de la révolution culturelle dont tout le monde parle</p>
+            
+            <div class="cta-buttons">
+                <a href="https://hormur.com/signup-artist" class="cta-btn cta-btn-primary">Je suis artiste</a>
+                <a href="https://hormur.com/signup-host" class="cta-btn cta-btn-secondary">J'accueille des événements</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
