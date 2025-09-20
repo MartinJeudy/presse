@@ -34,10 +34,30 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
+            /* Forcer la position initiale */
+            overflow-anchor: none;
         }
 
         html {
-            scroll-behavior: auto; /* Changé de smooth à auto pour éviter les conflits */
+            scroll-behavior: auto;
+            /* Empêcher tout scroll automatique */
+            scroll-padding-top: 0;
+            overflow-anchor: none;
+        }
+
+        /* Empêcher le repositionnement automatique pendant le chargement */
+        html, body {
+            scroll-restoration: manual;
+        }
+
+        /* Style temporaire pour masquer le contenu pendant le chargement initial */
+        .page-loading {
+            opacity: 0;
+            transition: opacity 0.1s ease;
+        }
+
+        .page-loaded {
+            opacity: 1;
         }
 
         /* Animations */
@@ -881,24 +901,39 @@
         }
     </style>
     
-    <!-- Script ajouté en haut pour forcer la position immédiatement -->
+    <!-- Script de positionnement optimisé -->
     <script>
-        // Force la position en haut immédiatement - avec vérifications
+        // Empêcher tout scroll avant le chargement complet
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Nettoyer l'URL et forcer la position immédiatement
         if (window.location.hash) {
             window.location.hash = '';
         }
-        window.scrollTo(0, 0);
         
-        // Vérifier que les éléments existent avant de les modifier
-        if (document.documentElement) {
-            document.documentElement.scrollTop = 0;
-        }
-        if (document.body) {
-            document.body.scrollTop = 0;
+        // Forcer la position en haut de manière plus directe
+        document.addEventListener('DOMContentLoaded', function() {
+            window.scrollTo(0, 0);
+            document.body.classList.remove('page-loading');
+            document.body.classList.add('page-loaded');
+        });
+        
+        // Backup au cas où DOMContentLoaded a déjà été déclenché
+        if (document.readyState === 'loading') {
+            // Document encore en cours de chargement
+        } else {
+            // Document déjà chargé
+            window.scrollTo(0, 0);
+            if (document.body) {
+                document.body.classList.remove('page-loading');
+                document.body.classList.add('page-loaded');
+            }
         }
     </script>
 </head>
-<body>
+<body class="page-loading">
     <header>
         <div class="nav-container">
             <div class="logo-container">
@@ -1249,31 +1284,13 @@
     </div>
 
     <script>
-        // Forcer le scroll en haut dès que possible
-        (function() {
-            // Supprimer immédiatement tout hash dans l'URL
-            if (window.location.hash) {
-                history.replaceState(null, null, ' ');
-            }
-            
-            // Forcer la position en haut avec vérifications
-            var forceTop = function() {
-                window.scrollTo(0, 0);
-                if (document.documentElement) {
-                    document.documentElement.scrollTop = 0;
-                }
-                if (document.body) {
-                    document.body.scrollTop = 0;
-                }
-            };
-            
-            // Exécuter immédiatement et plusieurs fois pendant le chargement
-            forceTop();
-            setTimeout(forceTop, 1);
-            setTimeout(forceTop, 10);
-            setTimeout(forceTop, 50);
-            setTimeout(forceTop, 100);
-        })();
+        // Script de positionnement simple et efficace
+        window.addEventListener('load', function() {
+            // Finaliser le positionnement en haut une fois tout chargé
+            window.scrollTo(0, 0);
+            document.body.classList.remove('page-loading');
+            document.body.classList.add('page-loaded');
+        });
 
         // Scroll functions for videos
         function scrollVideos(direction) {
@@ -1355,7 +1372,7 @@
             }
         });
 
-        // Smooth scroll pour les liens internes - mais avec reset en haut
+        // Smooth scroll pour les liens internes
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1368,31 +1385,6 @@
                     });
                 }
             });
-        });
-
-        // S'assurer que la page commence en haut à chaque chargement
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                window.scrollTo(0, 0);
-                if (document.documentElement) {
-                    document.documentElement.scrollTop = 0;
-                }
-                if (document.body) {
-                    document.body.scrollTop = 0;
-                }
-            }, 1);
-        });
-
-        // Empêcher l'auto-scroll si il y a un hash
-        window.addEventListener('beforeunload', function() {
-            window.scrollTo(0, 0);
-        });
-
-        // Écouter les changements d'URL et forcer le retour en haut
-        window.addEventListener('hashchange', function() {
-            if (window.location.hash === '') {
-                window.scrollTo(0, 0);
-            }
         });
     </script>
 </body>
