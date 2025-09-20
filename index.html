@@ -788,7 +788,7 @@
         @media (max-width: 480px) {
             .hero {
                 min-height: 100vh;
-                padding: 100px 20px 40px;
+                padding: 80px 20px 40px;
             }
 
             .hero h1 {
@@ -811,8 +811,10 @@
 
             .nav-container {
                 padding: 12px 15px;
-                flex-wrap: wrap;
-                gap: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: nowrap;
             }
 
             .nav-actions {
@@ -821,16 +823,14 @@
                 flex-wrap: nowrap;
                 align-items: center;
                 justify-content: flex-end;
-                width: 100%;
-                max-width: 280px;
             }
 
             .nav-btn {
-                padding: 8px 10px;
-                font-size: 10px;
-                min-width: 60px;
-                flex: 1;
+                padding: 6px 8px;
+                font-size: 9px;
+                min-width: 55px;
                 text-align: center;
+                white-space: nowrap;
             }
         }
 
@@ -926,7 +926,7 @@
                 </div>
             </div>
 
-            <div class="hero-video animate-fade-in">
+            <div class="hero-video animate-fade-in" id="hero-video">
                 <div class="video-badge">🔴 FRANCE 2 - 7min</div>
                 <iframe src="https://www.youtube.com/embed/i9CedcjPiRE" allowfullscreen></iframe>
             </div>
@@ -937,12 +937,12 @@
         <div class="media-container">
             <p class="media-title">Ils parlent de notre révolution culturelle</p>
             <div class="media-logos">
-                <a href="https://www.franceinfo.fr/societe/hormur-l-application-qui-vous-propose-d-accueillir-des-evenements-culturels-dans-votre-salon_7480576.html" class="media-logo" target="_blank">France 2</a>
-                <a href="https://youtu.be/A2vtfrbt6NM" class="media-logo" target="_blank">TF1</a>
+                <a href="#hero-video" class="media-logo">France 2</a>
+                <a href="#tf1-video" class="media-logo">TF1</a>
                 <a href="#radio-section" class="media-logo">France Inter</a>
                 <a href="#" class="media-logo" onclick="openModal('lemonde')">Le Monde</a>
-                <a href="https://youtu.be/2UvLyOyvs_Y" class="media-logo" target="_blank">BFM</a>
-                <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="media-logo" target="_blank">LCI</a>
+                <a href="#bfm-video" class="media-logo">BFM</a>
+                <a href="#lci-video" class="media-logo">LCI</a>
                 <a href="#" class="media-logo" onclick="openModal('figaro')">Le Figaro</a>
                 <a href="#" class="media-logo" onclick="openModal('cnrs')">CNRS</a>
             </div>
@@ -1202,7 +1202,7 @@
                 <span class="close" onclick="closeModal('ministere')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1-CXpe3rVN4Tlhm29hfYvcWHWJp8iNZNo/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1-CXpe3rVN4Tlhm29hfYvcWHWJp8iNZNo/preview" width="100%" height="600px"></iframe>
             </div>
         </div>
     </div>
@@ -1214,7 +1214,7 @@
                 <span class="close" onclick="closeModal('lemonde')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1fLlCAOFaQnZ2M1is1xO4CMenCvqxXg7f/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1fLlCAOFaQnZ2M1is1xO4CMenCvqxXg7f/preview" width="100%" height="600px"></iframe>
             </div>
         </div>
     </div>
@@ -1226,7 +1226,7 @@
                 <span class="close" onclick="closeModal('figaro')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1h16HEj3-dyA3nMFmS8Vz4Y-TQXfRCJIK/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1h16HEj3-dyA3nMFmS8Vz4Y-TQXfRCJIK/preview" width="100%" height="600px"></iframe>
             </div>
         </div>
     </div>
@@ -1238,7 +1238,7 @@
                 <span class="close" onclick="closeModal('cnrs')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1gwOoymjd4bkhXXDfQOzferuBu0fEVXzW/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1gwOoymjd4bkhXXDfQOzferuBu0fEVXzW/preview" width="100%" height="600px"></iframe>
             </div>
         </div>
     </div>
@@ -1250,7 +1250,7 @@
                 <span class="close" onclick="closeModal('pulsalys')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="https://drive.google.com/file/d/1nfiz_o86C1rs8qEIsMVA_VfH5WV4f79E/preview"></iframe>
+                <iframe src="https://drive.google.com/file/d/1nfiz_o86C1rs8qEIsMVA_VfH5WV4f79E/preview" width="100%" height="600px"></iframe>
             </div>
         </div>
     </div>
@@ -1340,7 +1340,8 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
@@ -1349,6 +1350,16 @@
                 }
             });
         });
+
+        // Ensure page starts at top
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+
+        // Prevent auto-scroll on page load
+        if (window.location.hash) {
+            window.location.hash = '';
+        }
     </script>
 </body>
 </html>
