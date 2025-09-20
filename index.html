@@ -34,6 +34,11 @@
             line-height: 1.6;
             overflow-x: hidden;
             background: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Animations */
@@ -132,7 +137,7 @@
             padding: 120px 30px 60px;
             position: relative;
             overflow: hidden;
-            min-height: 70vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
         }
@@ -781,6 +786,11 @@
         }
 
         @media (max-width: 480px) {
+            .hero {
+                min-height: 100vh;
+                padding: 100px 20px 40px;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -800,20 +810,27 @@
             }
 
             .nav-container {
-                padding: 15px 20px;
+                padding: 12px 15px;
+                flex-wrap: wrap;
+                gap: 10px;
             }
 
             .nav-actions {
-                flex-direction: row;
-                gap: 6px;
-                flex-wrap: wrap;
+                display: flex;
+                gap: 4px;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: flex-end;
+                width: 100%;
+                max-width: 280px;
             }
 
             .nav-btn {
-                padding: 8px 12px;
-                font-size: 11px;
-                min-width: 70px;
+                padding: 8px 10px;
+                font-size: 10px;
+                min-width: 60px;
                 flex: 1;
+                text-align: center;
             }
         }
 
@@ -869,7 +886,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="https://i.postimg.cc/26yZBpCB/hormur-logo-orange.png" alt="Hormur Logo" class="logo-img">
+                <img src="https://cdn.usestencil.com/uploads/15a569bc-3bde-45e7-bad1-cc691194f1f5/2027f087-1a72-4ad1-97f2-af1bdad55850/Logo_couleurpng_Plan_de_travail_1_copie%20(1)%20(4)-1754519156.png" alt="Hormur Logo" class="logo-img">
             </div>
             <div class="nav-actions">
                 <a href="https://hormur.com/signup-artist" class="nav-btn nav-btn-secondary">Artistes</a>
@@ -1185,20 +1202,31 @@
                 <span class="close" onclick="closeModal('ministere')">&times;</span>
             </div>
             <div class="modal-body">
-                <div style="padding: 20px; line-height: 1.6;">
-                    <h3 style="color: var(--primary-orange); margin-bottom: 20px;">Innovation : Hormur, l'art où on ne l'attend pas</h3>
-                    <p style="margin-bottom: 15px; color: var(--text-gray);">Publié le 2 nov. 2023</p>
-                    <p style="margin-bottom: 20px;">Lauréat de l'appel à manifestation d'intérêt « France 2030 » dédié aux solutions de billetteries innovantes, la plateforme Hormur pourrait bien devenir demain le plus court chemin pour réaliser des projets artistiques hors-les-murs.</p>
-                    
-                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">D'où vient l'idée d'Hormur ?</h4>
-                    <p style="margin-bottom: 20px;">En tant que metteur en scène, j'ai toujours aimé présenter des spectacles chez des particuliers, dans des librairies, des restaurants, des cours de châteaux... autant de lieux qui ont une histoire singulière, propice à la diffusion artistique, mais qu'il n'est pas toujours facile d'identifier. D'où l'idée de l'outil numérique : la plateforme Hormur donne la possibilité à un hôte et à un artiste de se rencontrer pour envisager de construire ensemble un événement culturel, qu'il s'agisse d'un spectacle, d'un concert, d'une exposition ou d'un récital de poésie.</p>
-                    
-                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">Ces événements prennent-ils, de ce fait, une autre dimension ?</h4>
-                    <p style="margin-bottom: 20px;">À l'évidence, on ne conçoit pas de la même manière un événement pour 5 000 personnes et un événement pour 20, 50 ou 100 personnes, mais il y a de la place pour chacun d'eux, c'est ce que nous voulons montrer. Et notamment pour des propositions dans d'autres formats, plus intimistes, plus réduits, réalisées dans des lieux insoupçonnés. Notre conviction est la même concernant les publics. Dans le cadre d'un travail de recherche, je me suis intéressé à la typologie de publics présents dans des lieux non dédiés à l'art. Avec Hormur, je poursuis en quelque sorte cette étude grandeur nature.</p>
-                    
-                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">Comment fonctionne Hormur ?</h4>
-                    <p style="margin-bottom: 20px;">Hormur propose une solution de billetterie qui permet de mettre en relation tous les acteurs. En vérité, c'est plus qu'une billetterie puisqu'un même utilisateur peut tout à la fois proposer des projets artistiques, proposer un lieu et réserver des places pour des événements. L'un des atouts du site est de permettre cette porosité entre les rôles de chacun. On invite les gens à entrer dans la danse, en quelque sorte. La billetterie est inspirée du financement participatif : le spectateur sait quel est l'objectif financier à atteindre. Dans l'hypothèse où celui-ci ne l'est pas, l'événement est annulé. Cela permet de sécuriser la garantie financière et d'éviter une dépense d'énergie inutile.</p>
-                </div>
+                <iframe src="https://drive.google.com/file/d/1-CXpe3rVN4Tlhm29hfYvcWHWJp8iNZNo/preview"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-lemonde" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Le Monde - Ce soir, on joue à domicile</h2>
+                <span class="close" onclick="closeModal('lemonde')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://drive.google.com/file/d/1fLlCAOFaQnZ2M1is1xO4CMenCvqxXg7f/preview"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-figaro" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Le Figaro - Organiser un spectacle chez soi</h2>
+                <span class="close" onclick="closeModal('figaro')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="https://drive.google.com/file/d/1h16HEj3-dyA3nMFmS8Vz4Y-TQXfRCJIK/preview"></iframe>
             </div>
         </div>
     </div>
@@ -1210,7 +1238,7 @@
                 <span class="close" onclick="closeModal('cnrs')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+                <iframe src="https://drive.google.com/file/d/1gwOoymjd4bkhXXDfQOzferuBu0fEVXzW/preview"></iframe>
             </div>
         </div>
     </div>
@@ -1222,7 +1250,7 @@
                 <span class="close" onclick="closeModal('pulsalys')">&times;</span>
             </div>
             <div class="modal-body">
-                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+                <iframe src="https://drive.google.com/file/d/1nfiz_o86C1rs8qEIsMVA_VfH5WV4f79E/preview"></iframe>
             </div>
         </div>
     </div>
