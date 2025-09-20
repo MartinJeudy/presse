@@ -189,6 +189,13 @@
             font-weight: 400;
         }
 
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
         .hero-stats {
             display: flex;
             gap: 30px;
@@ -289,7 +296,7 @@
             color: var(--primary-orange);
         }
 
-        /* Featured Content */
+        /* Featured Content - Videos */
         .featured-section {
             background: var(--light-gray);
             padding: 80px 30px;
@@ -317,12 +324,30 @@
             font-weight: 400;
         }
 
-        .featured-grid {
+        /* Scrollable Grid */
+        .scrollable-container {
             max-width: 1400px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            position: relative;
+        }
+
+        .scroll-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 10px;
+        }
+
+        .scroll-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .featured-grid {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            min-width: max-content;
         }
 
         .featured-card {
@@ -332,6 +357,8 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             cursor: pointer;
+            min-width: 400px;
+            flex-shrink: 0;
         }
 
         .featured-card:hover {
@@ -348,18 +375,6 @@
             width: 100%;
             height: 100%;
             border: none;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.7));
-            display: flex;
-            align-items: flex-end;
-            padding: 20px;
         }
 
         .media-tag {
@@ -405,7 +420,36 @@
             gap: 15px;
         }
 
-        /* Audio Players */
+        /* Scroll Navigation */
+        .scroll-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .scroll-btn {
+            background: var(--white);
+            border: 2px solid var(--primary-orange);
+            color: var(--primary-orange);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary-orange);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        /* Audio Section */
         .audio-section {
             background: var(--white);
             padding: 80px 30px;
@@ -415,14 +459,14 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
         }
 
         .audio-card {
             background: var(--light-gray);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 20px;
+            padding: 30px;
             transition: all 0.3s ease;
         }
 
@@ -434,24 +478,25 @@
         .audio-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 15px;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
         .audio-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: var(--gradient-main);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
         .audio-info h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 5px;
         }
@@ -459,6 +504,138 @@
         .audio-channel {
             color: var(--text-gray);
             font-size: 0.9rem;
+        }
+
+        .soundcloud-player {
+            margin-top: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Press Articles Section */
+        .press-section {
+            background: var(--light-gray);
+            padding: 80px 30px;
+        }
+
+        .press-grid {
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            min-width: max-content;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            min-width: 350px;
+            flex-shrink: 0;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .article-source {
+            font-weight: 700;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .article-title {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .article-date {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--white);
+            margin: 2% auto;
+            padding: 0;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .modal-header {
+            background: var(--gradient-main);
+            color: var(--white);
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .close {
+            color: var(--white);
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-body iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 10px;
         }
 
         /* CTA Section */
@@ -504,7 +681,8 @@
             font-weight: 700;
             font-size: 1rem;
             transition: all 0.3s ease;
-            min-width: 200px;
+            min-width: 180px;
+            text-align: center;
         }
 
         .cta-btn-white {
@@ -540,13 +718,22 @@
                 justify-content: center;
             }
 
-            .featured-grid {
-                grid-template-columns: 1fr;
+            .featured-card {
+                min-width: 300px;
+            }
+
+            .article-card {
+                min-width: 280px;
             }
 
             .nav-actions {
-                flex-direction: column;
                 gap: 10px;
+            }
+
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+                min-width: auto;
             }
 
             .media-logos {
@@ -560,6 +747,69 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .audio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .audio-card {
+                padding: 20px;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                max-height: 85vh;
+            }
+
+            .modal-body {
+                padding: 20px;
+                max-height: 65vh;
+            }
+
+            .modal-body iframe {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .hero-stat {
+                width: 100%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                padding: 15px 20px;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 11px;
             }
         }
 
@@ -634,9 +884,10 @@
         
         <div class="hero-content">
             <div class="hero-text animate-fade-in">
-                <span class="hero-badge">✨ Révolution Culturelle</span>
+                <span class="hero-badge">🚀 Révolution Culturelle</span>
                 <h1>Hormur fait sensation dans les médias</h1>
-                <p class="hero-subtitle">La plateforme qui révolutionne l'accès à la culture fait l'actualité sur France 2, TF1, Le Monde et 15+ médias nationaux</p>
+                <p class="hero-subtitle">La plateforme qui révolutionne l'accès à la culture</p>
+                <p class="hero-description">Hormur connecte artistes, lieux atypiques et spectateurs pour créer des expériences culturelles uniques et intimistes. De votre salon à votre jardin, la culture vient à vous !</p>
                 
                 <div class="hero-stats">
                     <div class="hero-stat">
@@ -648,14 +899,14 @@
                         <span class="hero-stat-label">Personnes touchées</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat-number">7min</span>
-                        <span class="hero-stat-label">France 2</span>
+                        <span class="hero-stat-number">3000+</span>
+                        <span class="hero-stat-label">Artistes inscrits</span>
                     </div>
                 </div>
             </div>
 
             <div class="hero-video animate-fade-in">
-                <div class="video-badge">🔴 FRANCE 2</div>
+                <div class="video-badge">🔴 FRANCE 2 - 7min</div>
                 <iframe src="https://www.youtube.com/embed/i9CedcjPiRE" allowfullscreen></iframe>
             </div>
         </div>
@@ -663,57 +914,94 @@
 
     <section class="media-showcase">
         <div class="media-container">
-            <p class="media-title">Ils parlent d'Hormur</p>
+            <p class="media-title">Ils parlent de notre révolution culturelle</p>
             <div class="media-logos">
                 <a href="https://www.franceinfo.fr/societe/hormur-l-application-qui-vous-propose-d-accueillir-des-evenements-culturels-dans-votre-salon_7480576.html" class="media-logo" target="_blank">France 2</a>
-                <a href="https://www.tf1.fr/tf1/bonjour-la-matinale-tf1/videos/rendez-vous-culture-hormur-du-stand-up-a-domicile-80946056.html" class="media-logo" target="_blank">TF1</a>
-                <a href="https://www.radiofrance.fr/franceinter/podcasts/carnets-de-campagne/carnets-de-campagne-du-vendredi-30-mai-2025-2748973" class="media-logo" target="_blank">France Inter</a>
-                <a href="https://drive.google.com/file/d/1mdhu3EakqxoC1OoyvtAxoKDijylH7wD4/view" class="media-logo" target="_blank">Le Monde</a>
-                <a href="https://drive.google.com/file/d/184Vij3XF-IRRsg68v9H3aJMiGkE-5uIr/view" class="media-logo" target="_blank">BFM</a>
+                <a href="https://youtu.be/A2vtfrbt6NM" class="media-logo" target="_blank">TF1</a>
+                <a href="#radio-section" class="media-logo">France Inter</a>
+                <a href="#" class="media-logo" onclick="openModal('lemonde')">Le Monde</a>
+                <a href="#" class="media-logo" onclick="openModal('bfm')">BFM</a>
                 <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="media-logo" target="_blank">LCI</a>
-                <a href="https://drive.google.com/file/d/1GJ-Sea5mzTSjrRv0PpCamSzvFUKQxkWQ/view" class="media-logo" target="_blank">Le Figaro</a>
+                <a href="#" class="media-logo" onclick="openModal('figaro')">Le Figaro</a>
+                <a href="#" class="media-logo" onclick="openModal('cnrs')">CNRS</a>
             </div>
         </div>
     </section>
 
     <section class="featured-section">
         <div class="section-header">
-            <h2 class="section-title">Nos temps forts médiatiques</h2>
+            <h2 class="section-title">Nos temps forts télévision</h2>
             <p class="section-subtitle">Les reportages et interviews qui ont marqué l'actualité culturelle</p>
         </div>
 
-        <div class="featured-grid">
-            <div class="featured-card">
-                <div class="featured-video">
-                    <div class="media-tag">EXCLUSIF</div>
-                    <iframe src="https://www.youtube.com/embed/ITcrkwvEUIk" allowfullscreen></iframe>
-                </div>
-                <div class="featured-content">
-                    <h3 class="featured-title">LCI - L'innovation culturelle</h3>
-                    <p class="featured-description">Comment Hormur transforme l'expérience culturelle en France selon LCI</p>
-                    <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="featured-link" target="_blank">
-                        Voir l'émission →
-                    </a>
+        <div class="scrollable-container">
+            <div class="scroll-wrapper">
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <div class="featured-video">
+                            <div class="media-tag">REPORTAGE 7min</div>
+                            <iframe src="https://www.youtube.com/embed/i9CedcjPiRE" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="featured-title">France 2 - Une idée pour la France</h3>
+                            <p class="featured-description">Reportage exclusif de 7 minutes sur la révolution culturelle Hormur dans l'émission phare de France 2</p>
+                            <a href="https://www.youtube.com/embed/i9CedcjPiRE" class="featured-link" target="_blank">
+                                Voir le reportage →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="featured-video">
+                            <div class="media-tag">MATINALE</div>
+                            <iframe src="https://www.youtube.com/embed/A2vtfrbt6NM" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="featured-title">TF1 - Bonjour la Matinale</h3>
+                            <p class="featured-description">Du stand-up à domicile : comment Hormur révolutionne les soirées culturelles</p>
+                            <a href="https://youtu.be/A2vtfrbt6NM" class="featured-link" target="_blank">
+                                Voir l'émission →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="featured-video">
+                            <div class="media-tag">INNOVATION</div>
+                            <iframe src="https://www.youtube.com/embed/ITcrkwvEUIk" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="featured-title">LCI - L'innovation culturelle</h3>
+                            <p class="featured-description">Analyse de l'innovation culturelle portée par Hormur selon LCI</p>
+                            <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="featured-link" target="_blank">
+                                Découvrir →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="featured-video">
+                            <div class="media-tag">RÉGIONAL</div>
+                            <iframe src="https://www.youtube.com/embed/PO3JuO1S3-Q" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="featured-title">France TV - Reportage régional</h3>
+                            <p class="featured-description">Immersion dans l'univers Hormur à travers les territoires français</p>
+                            <a href="https://www.youtube.com/embed/PO3JuO1S3-Q" class="featured-link" target="_blank">
+                                Voir le reportage →
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="featured-card">
-                <div class="featured-video">
-                    <div class="media-tag">REPORTAGE</div>
-                    <iframe src="https://www.youtube.com/embed/PO3JuO1S3-Q" allowfullscreen></iframe>
-                </div>
-                <div class="featured-content">
-                    <h3 class="featured-title">France TV - Reportage régional</h3>
-                    <p class="featured-description">Immersion dans l'univers Hormur à travers les territoires français</p>
-                    <a href="https://www.youtube.com/embed/PO3JuO1S3-Q" class="featured-link" target="_blank">
-                        Découvrir →
-                    </a>
-                </div>
+            <div class="scroll-nav">
+                <div class="scroll-btn" onclick="scrollVideos('left')">‹</div>
+                <div class="scroll-btn" onclick="scrollVideos('right')">›</div>
             </div>
         </div>
     </section>
 
-    <section class="audio-section">
+    <section class="audio-section" id="radio-section">
         <div class="section-header">
             <h2 class="section-title">Nos passages radio</h2>
             <p class="section-subtitle">Écoutez directement nos interviews sur les plus grandes radios</p>
@@ -725,27 +1013,103 @@
                     <div class="audio-icon">🎙️</div>
                     <div class="audio-info">
                         <h3>France Inter - Carnet de Campagne</h3>
-                        <p class="audio-channel">20 minutes d'interview exclusive</p>
+                        <p class="audio-channel">20 minutes d'interview exclusive avec Martin Jeudy</p>
                     </div>
                 </div>
-                <p style="color: var(--text-gray); margin-bottom: 15px;">Pour écouter l'audio, nous vous redirigerons vers France Inter</p>
-                <a href="https://www.radiofrance.fr/franceinter/podcasts/carnets-de-campagne/carnets-de-campagne-du-vendredi-30-mai-2025-2748973" target="_blank" class="featured-link">
-                    Écouter l'émission →
-                </a>
+                <div class="soundcloud-player">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173665168&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+            </div>
+
+            <div class="audio-card">
+                <div class="audio-header">
+                    <div class="audio-icon">🌍</div>
+                    <div class="audio-info">
+                        <h3>France Inter - Un Monde Nouveau</h3>
+                        <p class="audio-channel">L'innovation sociale d'Hormur dans le secteur culturel</p>
+                    </div>
+                </div>
+                <div class="soundcloud-player">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173664196&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
             </div>
 
             <div class="audio-card">
                 <div class="audio-header">
                     <div class="audio-icon">📻</div>
                     <div class="audio-info">
-                        <h3>France Bleu - Direct avec Willy Rovelli</h3>
-                        <p class="audio-channel">Émission spéciale culture</p>
+                        <h3>France Bleu - Art chez l'habitant</h3>
+                        <p class="audio-channel">Comment Hormur démocratise l'accès à la culture</p>
                     </div>
                 </div>
-                <p style="color: var(--text-gray); margin-bottom: 15px;">Audio complet disponible dans nos archives</p>
-                <a href="https://drive.google.com/file/d/1oanRFeW69uDcwBqM9fXfISS0sYZNe-Fl/view" target="_blank" class="featured-link">
-                    Accéder à l'audio →
-                </a>
+                <div class="soundcloud-player">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173666185&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+            </div>
+
+            <div class="audio-card">
+                <div class="audio-header">
+                    <div class="audio-icon">🎵</div>
+                    <div class="audio-info">
+                        <h3>NRJ - Innovation Culturelle</h3>
+                        <p class="audio-channel">Hormur : la startup qui révolutionne la culture</p>
+                    </div>
+                </div>
+                <div class="soundcloud-player">
+                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173663434&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="press-section">
+        <div class="section-header">
+            <h2 class="section-title">Dans la presse écrite</h2>
+            <p class="section-subtitle">Les analyses et reportages qui décryptent le phénomène Hormur</p>
+        </div>
+
+        <div class="scrollable-container">
+            <div class="scroll-wrapper">
+                <div class="press-grid">
+                    <div class="article-card" onclick="openModal('lemonde')">
+                        <div class="article-source">Le Monde</div>
+                        <h3 class="article-title">Ce soir, on joue à domicile</h3>
+                        <p class="article-excerpt">Article de fond sur la révolution des spectacles chez l'habitant et l'impact d'Hormur sur la démocratisation culturelle en France...</p>
+                        <p class="article-date">Dimanche 25 - Lundi 26 mai 2025</p>
+                    </div>
+
+                    <div class="article-card" onclick="openModal('figaro')">
+                        <div class="article-source">Le Figaro Magazine</div>
+                        <h3 class="article-title">Organiser un spectacle chez soi</h3>
+                        <p class="article-excerpt">L'initiative Hormur permet aux artistes et particuliers de créer des rencontres originales et intimistes dans tous types de lieux...</p>
+                        <p class="article-date">Magazine Culture</p>
+                    </div>
+
+                    <div class="article-card" onclick="openModal('bfm')">
+                        <div class="article-source">BFM Business</div>
+                        <h3 class="article-title">Le business model innovant d'Hormur</h3>
+                        <p class="article-excerpt">BFM Business décrypte le modèle économique unique qui permet à Hormur de créer de la valeur pour tous les acteurs...</p>
+                        <p class="article-date">Émission économique</p>
+                    </div>
+
+                    <div class="article-card" onclick="openModal('cnrs')">
+                        <div class="article-source">CNRS - LIRIS</div>
+                        <h3 class="article-title">L'innovation technologique au service de la culture</h3>
+                        <p class="article-excerpt">Le CNRS salue la collaboration avec Hormur et l'utilisation de la recherche scientifique pour démocratiser l'art...</p>
+                        <p class="article-date">Publication scientifique</p>
+                    </div>
+
+                    <div class="article-card" onclick="openModal('pulsalys')">
+                        <div class="article-source">Pulsalys</div>
+                        <h3 class="article-title">Hormur : l'art où on ne l'attend pas</h3>
+                        <p class="article-excerpt">Pulsalys présente Hormur comme une innovation majeure dans la transformation digitale du secteur culturel...</p>
+                        <p class="article-date">Innovation & Tech</p>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-nav">
+                <div class="scroll-btn" onclick="scrollPress('left')">‹</div>
+                <div class="scroll-btn" onclick="scrollPress('right')">›</div>
             </div>
         </div>
     </section>
@@ -758,12 +1122,116 @@
             <div class="cta-buttons">
                 <a href="https://hormur.com/signup-artist" class="cta-btn cta-btn-white">Je suis artiste</a>
                 <a href="https://hormur.com/signup-host" class="cta-btn cta-btn-outline">J'accueille chez moi</a>
-                <a href="https://hormur.com/signup-spectator" class="cta-btn cta-btn-outline">Je veux découvrir</a>
+                <a href="https://hormur.com/signup-spectator" class="cta-btn cta-btn-outline">Je découvre des spectacles</a>
             </div>
         </div>
     </section>
 
+    <!-- Modals -->
+    <div id="modal-lemonde" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Le Monde - Ce soir, on joue à domicile</h2>
+                <span class="close" onclick="closeModal('lemonde')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-figaro" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Le Figaro - Organiser un spectacle chez soi</h2>
+                <span class="close" onclick="closeModal('figaro')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-bfm" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">BFM Business - Le business model d'Hormur</h2>
+                <span class="close" onclick="closeModal('bfm')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-cnrs" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">CNRS - Innovation technologique</h2>
+                <span class="close" onclick="closeModal('cnrs')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-pulsalys" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Pulsalys - L'art où on ne l'attend pas</h2>
+                <span class="close" onclick="closeModal('pulsalys')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
+            </div>
+        </div>
+    </div>
+
     <script>
+        // Scroll functions for videos
+        function scrollVideos(direction) {
+            const container = document.querySelector('.featured-grid');
+            const scrollAmount = 450;
+            
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Scroll functions for press articles
+        function scrollPress(direction) {
+            const container = document.querySelector('.press-grid');
+            const scrollAmount = 380;
+            
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById('modal-' + modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById('modal-' + modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Animation on scroll
         window.addEventListener('scroll', () => {
             const elements = document.querySelectorAll('.animate-fade-in');
@@ -787,6 +1255,20 @@
                 header.style.background = 'rgba(255, 255, 255, 0.95)';
                 header.style.backdropFilter = 'blur(10px)';
             }
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
         });
     </script>
 </body>
