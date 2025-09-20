@@ -456,11 +456,10 @@
         }
 
         .audio-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 40px;
+            display: flex;
+            gap: 30px;
+            padding: 10px 0;
+            min-width: max-content;
         }
 
         .audio-card {
@@ -468,6 +467,8 @@
             border-radius: 20px;
             padding: 30px;
             transition: all 0.3s ease;
+            width: 320px;
+            flex-shrink: 0;
         }
 
         .audio-card:hover {
@@ -719,15 +720,23 @@
             }
 
             .featured-card {
-                min-width: 300px;
+                width: 95vw;
+                margin: 0 auto;
             }
 
             .article-card {
-                min-width: 280px;
+                width: 85vw;
+                margin: 0 auto;
+            }
+
+            .audio-card {
+                width: 90vw;
+                margin: 0 auto;
             }
 
             .nav-actions {
-                gap: 10px;
+                gap: 8px;
+                align-items: center;
             }
 
             .nav-btn {
@@ -753,14 +762,6 @@
             .cta-btn {
                 width: 100%;
                 max-width: 280px;
-            }
-
-            .audio-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .audio-card {
-                padding: 20px;
             }
 
             .modal-content {
@@ -868,7 +869,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-container">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTc2IiBoZWlnaHQ9IjE2OCIgdmlld0JveD0iMCAwIDU3NiAxNjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik00NiA1MEg3NFY5NUg0NlY1MFpNNDYgOTVIMTQuNVY5NUg0NlY5NVpNNDYgMTIzVjEyM0g3NFYxMjNINDZaIiBmaWxsPSIjMzIzMjQyIi8+CjxwYXRoIGQ9Ik0xMTMgOTVIMTQxVjUwSDExM1Y5NVpNMTE5IDEyM0gxMTNWMTIzSDExOVoiIGZpbGw9IiMzMjMyNDIiLz4KPGNpcmNsZSBjeD0iMTg4IiBjeT0iODQiIHI9IjQ0IiBmaWxsPSIjRUU2NTUzIi8+CjxwYXRoIGQ9Ik0xNzUgNzhDMTgwIDc4IDE4NCA4MiAxODQgODdTMTgwIDk2IDE3NSA5NkMxNzAgOTYgMTY2IDkyIDE2NiA4N1MxNzAgNzggMTc1IDc4WiIgZmlsbD0iIzMyMzI0MiIvPgo8cGF0aCBkPSJNMjM4IDUwSDI5NFY2NEgyNzBWOTVIMjM4VjUwWk0yMzggNjRIMjU0VjUwSDIzOFY2NFoiIGZpbGw9IiMzMjMyNDIiLz4KPHBhdGggZD0iTTMyMCA1MEgzNDhWMTIzSDMyMFY1MFpNMzIwIDc4SDM2NFY2NEgzMjBWNzhaIiBmaWxsPSIjMzIzMjQyIi8+CjxwYXRoIGQ9Ik00MTAgNTBIMzc2VjEyM0g0MDBWOTE0SDQxMFY1MFpNNDEwIDkySDQzOFY2NEg0MTZWOTJINDV6NDJWOTY4SDQxMFY5MloiIGZpbGw9IiMzMjMyNDIiLz4KPHBhdGggZD0iTTQ2NCA1MEg0OTJWMTIzSDQ2NFY1MFpNNDY0IDc4SDUwOFY2NEg0NjRWNzhaIiBmaWxsPSIjMzIzMjQyIi8+Cjwvc3ZnPgo=" alt="Hormur Logo" class="logo-img">
+                <img src="https://i.postimg.cc/26yZBpCB/hormur-logo-orange.png" alt="Hormur Logo" class="logo-img">
             </div>
             <div class="nav-actions">
                 <a href="https://hormur.com/signup-artist" class="nav-btn nav-btn-secondary">Artistes</a>
@@ -894,7 +895,7 @@
                 
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <span class="hero-stat-number">15+</span>
+                        <span class="hero-stat-number">10+</span>
                         <span class="hero-stat-label">Médias nationaux</span>
                     </div>
                     <div class="hero-stat">
@@ -902,7 +903,7 @@
                         <span class="hero-stat-label">Personnes touchées</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat-number">3000+</span>
+                        <span class="hero-stat-number">3900+</span>
                         <span class="hero-stat-label">Artistes inscrits</span>
                     </div>
                 </div>
@@ -957,12 +958,12 @@
                     <div class="featured-card">
                         <div class="featured-video">
                             <div class="media-tag">MATINALE</div>
-                            <iframe src="https://www.youtube.com/embed/A2vtfrbt6NM" allowfullscreen></iframe>
+                            <iframe src="https://www.tf1.fr/fr-lu/player/b6104151-ecc5-462f-be23-0650ffaeaf20?startAt=30" allowfullscreen></iframe>
                         </div>
                         <div class="featured-content">
                             <h3 class="featured-title">TF1 - Bonjour la Matinale</h3>
                             <p class="featured-description">Du stand-up à domicile : comment Hormur révolutionne les soirées culturelles</p>
-                            <a href="https://youtu.be/A2vtfrbt6NM" class="featured-link" target="_blank">
+                            <a href="https://www.tf1.fr/fr-lu/player/b6104151-ecc5-462f-be23-0650ffaeaf20?startAt=30" class="featured-link" target="_blank">
                                 Voir l'émission →
                             </a>
                         </div>
@@ -1024,57 +1025,65 @@
             <p class="section-subtitle">Écoutez directement nos interviews sur les plus grandes radios</p>
         </div>
 
-        <div class="audio-grid">
-            <div class="audio-card">
-                <div class="audio-header">
-                    <div class="audio-icon">🎙️</div>
-                    <div class="audio-info">
-                        <h3>France Inter - Carnet de Campagne</h3>
-                        <p class="audio-channel">20 minutes d'interview exclusive avec Martin Jeudy</p>
+        <div class="scrollable-container">
+            <div class="scroll-wrapper">
+                <div class="audio-grid">
+                    <div class="audio-card">
+                        <div class="audio-header">
+                            <div class="audio-icon">🎙️</div>
+                            <div class="audio-info">
+                                <h3>France Inter - Carnet de Campagne</h3>
+                                <p class="audio-channel">20 minutes d'interview exclusive avec Martin Jeudy</p>
+                            </div>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173665168&color=%23ee6553&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+                        </div>
                     </div>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173665168&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+                    <div class="audio-card">
+                        <div class="audio-header">
+                            <div class="audio-icon">🌍</div>
+                            <div class="audio-info">
+                                <h3>France Inter - Un Monde Nouveau</h3>
+                                <p class="audio-channel">L'innovation sociale d'Hormur dans le secteur culturel</p>
+                            </div>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173664196&color=%23ee6553&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="audio-card">
+                        <div class="audio-header">
+                            <div class="audio-icon">📻</div>
+                            <div class="audio-info">
+                                <h3>France Bleu - Art chez l'habitant</h3>
+                                <p class="audio-channel">Comment Hormur démocratise l'accès à la culture</p>
+                            </div>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173666185&color=%23ee6553&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="audio-card">
+                        <div class="audio-header">
+                            <div class="audio-icon">🎵</div>
+                            <div class="audio-info">
+                                <h3>NRJ - Innovation Culturelle</h3>
+                                <p class="audio-channel">Hormur : la startup qui révolutionne la culture</p>
+                            </div>
+                        </div>
+                        <div class="soundcloud-player">
+                            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173663434&color=%23ee6553&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="audio-card">
-                <div class="audio-header">
-                    <div class="audio-icon">🌍</div>
-                    <div class="audio-info">
-                        <h3>France Inter - Un Monde Nouveau</h3>
-                        <p class="audio-channel">L'innovation sociale d'Hormur dans le secteur culturel</p>
-                    </div>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173664196&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-                </div>
-            </div>
-
-            <div class="audio-card">
-                <div class="audio-header">
-                    <div class="audio-icon">📻</div>
-                    <div class="audio-info">
-                        <h3>France Bleu - Art chez l'habitant</h3>
-                        <p class="audio-channel">Comment Hormur démocratise l'accès à la culture</p>
-                    </div>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173666185&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-                </div>
-            </div>
-
-            <div class="audio-card">
-                <div class="audio-header">
-                    <div class="audio-icon">🎵</div>
-                    <div class="audio-info">
-                        <h3>NRJ - Innovation Culturelle</h3>
-                        <p class="audio-channel">Hormur : la startup qui révolutionne la culture</p>
-                    </div>
-                </div>
-                <div class="soundcloud-player">
-                    <iframe width="100%" height="200" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2173663434&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-                </div>
+            <div class="scroll-nav">
+                <div class="scroll-btn" onclick="scrollAudio('left')">‹</div>
+                <div class="scroll-btn" onclick="scrollAudio('right')">›</div>
             </div>
         </div>
     </section>
@@ -1102,6 +1111,13 @@
                         <p class="article-date">Magazine Culture</p>
                     </div>
 
+                    <div class="article-card" onclick="openModal('ministere')">
+                        <div class="article-source">Ministère de la Culture</div>
+                        <h3 class="article-title">Innovation : Hormur, l'art où on ne l'attend pas</h3>
+                        <p class="article-excerpt">Lauréat de l'appel à manifestation d'intérêt France 2030, Hormur révolutionne l'accès à la culture grâce à des projets artistiques hors-les-murs...</p>
+                        <p class="article-date">2 nov. 2023</p>
+                    </div>
+
                     <div class="article-card" onclick="openModal('cnrs')">
                         <div class="article-source">CNRS - LIRIS</div>
                         <h3 class="article-title">L'innovation technologique au service de la culture</h3>
@@ -1127,7 +1143,7 @@
     <section class="cta-section">
         <div class="cta-content">
             <h2 class="cta-title">Rejoignez la révolution culturelle</h2>
-            <p class="cta-subtitle">Faites partie du mouvement qui transforme l'accès à la culture en France</p>
+            <p class="cta-subtitle">Faites partie du mouvement qui transforme l'accès à la culture</p>
             
             <div class="cta-buttons">
                 <a href="https://hormur.com/signup-artist" class="cta-btn cta-btn-white">Je suis artiste</a>
@@ -1162,6 +1178,31 @@
         </div>
     </div>
 
+    <div id="modal-ministere" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Ministère de la Culture - Innovation Hormur</h2>
+                <span class="close" onclick="closeModal('ministere')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="padding: 20px; line-height: 1.6;">
+                    <h3 style="color: var(--primary-orange); margin-bottom: 20px;">Innovation : Hormur, l'art où on ne l'attend pas</h3>
+                    <p style="margin-bottom: 15px; color: var(--text-gray);">Publié le 2 nov. 2023</p>
+                    <p style="margin-bottom: 20px;">Lauréat de l'appel à manifestation d'intérêt « France 2030 » dédié aux solutions de billetteries innovantes, la plateforme Hormur pourrait bien devenir demain le plus court chemin pour réaliser des projets artistiques hors-les-murs.</p>
+                    
+                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">D'où vient l'idée d'Hormur ?</h4>
+                    <p style="margin-bottom: 20px;">En tant que metteur en scène, j'ai toujours aimé présenter des spectacles chez des particuliers, dans des librairies, des restaurants, des cours de châteaux... autant de lieux qui ont une histoire singulière, propice à la diffusion artistique, mais qu'il n'est pas toujours facile d'identifier. D'où l'idée de l'outil numérique : la plateforme Hormur donne la possibilité à un hôte et à un artiste de se rencontrer pour envisager de construire ensemble un événement culturel, qu'il s'agisse d'un spectacle, d'un concert, d'une exposition ou d'un récital de poésie.</p>
+                    
+                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">Ces événements prennent-ils, de ce fait, une autre dimension ?</h4>
+                    <p style="margin-bottom: 20px;">À l'évidence, on ne conçoit pas de la même manière un événement pour 5 000 personnes et un événement pour 20, 50 ou 100 personnes, mais il y a de la place pour chacun d'eux, c'est ce que nous voulons montrer. Et notamment pour des propositions dans d'autres formats, plus intimistes, plus réduits, réalisées dans des lieux insoupçonnés. Notre conviction est la même concernant les publics. Dans le cadre d'un travail de recherche, je me suis intéressé à la typologie de publics présents dans des lieux non dédiés à l'art. Avec Hormur, je poursuis en quelque sorte cette étude grandeur nature.</p>
+                    
+                    <h4 style="color: var(--primary-dark); margin: 25px 0 15px 0;">Comment fonctionne Hormur ?</h4>
+                    <p style="margin-bottom: 20px;">Hormur propose une solution de billetterie qui permet de mettre en relation tous les acteurs. En vérité, c'est plus qu'une billetterie puisqu'un même utilisateur peut tout à la fois proposer des projets artistiques, proposer un lieu et réserver des places pour des événements. L'un des atouts du site est de permettre cette porosité entre les rôles de chacun. On invite les gens à entrer dans la danse, en quelque sorte. La billetterie est inspirée du financement participatif : le spectateur sait quel est l'objectif financier à atteindre. Dans l'hypothèse où celui-ci ne l'est pas, l'événement est annulé. Cela permet de sécuriser la garantie financière et d'éviter une dépense d'énergie inutile.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="modal-cnrs" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1190,7 +1231,7 @@
         // Scroll functions for videos
         function scrollVideos(direction) {
             const container = document.querySelector('.featured-grid').parentElement;
-            const scrollAmount = 350;
+            const scrollAmount = 300;
             
             if (direction === 'left') {
                 container.scrollLeft -= scrollAmount;
@@ -1202,7 +1243,19 @@
         // Scroll functions for press articles
         function scrollPress(direction) {
             const container = document.querySelector('.press-grid').parentElement;
-            const scrollAmount = 310;
+            const scrollAmount = 300;
+            
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Scroll functions for audio
+        function scrollAudio(direction) {
+            const container = document.querySelector('.audio-grid').parentElement;
+            const scrollAmount = 340;
             
             if (direction === 'left') {
                 container.scrollLeft -= scrollAmount;
