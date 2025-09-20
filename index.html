@@ -357,7 +357,7 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             cursor: pointer;
-            min-width: 400px;
+            min-width: 320px;
             flex-shrink: 0;
         }
 
@@ -531,7 +531,7 @@
             padding: 30px;
             transition: all 0.3s ease;
             cursor: pointer;
-            min-width: 350px;
+            min-width: 280px;
             flex-shrink: 0;
             text-decoration: none;
             color: inherit;
@@ -803,13 +803,16 @@
             }
 
             .nav-actions {
-                flex-direction: column;
-                gap: 8px;
+                flex-direction: row;
+                gap: 6px;
+                flex-wrap: wrap;
             }
 
             .nav-btn {
                 padding: 8px 12px;
                 font-size: 11px;
+                min-width: 70px;
+                flex: 1;
             }
         }
 
@@ -870,7 +873,7 @@
             <div class="nav-actions">
                 <a href="https://hormur.com/signup-artist" class="nav-btn nav-btn-secondary">Artistes</a>
                 <a href="https://hormur.com/signup-host" class="nav-btn nav-btn-secondary">Hôtes</a>
-                <a href="https://hormur.com/signup-spectator" class="nav-btn nav-btn-primary">Spectateurs</a>
+                <a href="https://hormur.com/signup-spectators" class="nav-btn nav-btn-primary">Spectateurs</a>
             </div>
         </div>
     </header>
@@ -920,7 +923,7 @@
                 <a href="https://youtu.be/A2vtfrbt6NM" class="media-logo" target="_blank">TF1</a>
                 <a href="#radio-section" class="media-logo">France Inter</a>
                 <a href="#" class="media-logo" onclick="openModal('lemonde')">Le Monde</a>
-                <a href="#" class="media-logo" onclick="openModal('bfm')">BFM</a>
+                <a href="https://youtu.be/2UvLyOyvs_Y" class="media-logo" target="_blank">BFM</a>
                 <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="media-logo" target="_blank">LCI</a>
                 <a href="#" class="media-logo" onclick="openModal('figaro')">Le Figaro</a>
                 <a href="#" class="media-logo" onclick="openModal('cnrs')">CNRS</a>
@@ -975,6 +978,20 @@
                             <p class="featured-description">Analyse de l'innovation culturelle portée par Hormur selon LCI</p>
                             <a href="https://www.youtube.com/embed/ITcrkwvEUIk" class="featured-link" target="_blank">
                                 Découvrir →
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="featured-card">
+                        <div class="featured-video">
+                            <div class="media-tag">BFM BUSINESS</div>
+                            <iframe src="https://www.youtube.com/embed/2UvLyOyvs_Y" allowfullscreen></iframe>
+                        </div>
+                        <div class="featured-content">
+                            <h3 class="featured-title">BFM Business - L'innovation culturelle</h3>
+                            <p class="featured-description">Décryptage du modèle économique innovant d'Hormur par BFM Business</p>
+                            <a href="https://youtu.be/2UvLyOyvs_Y" class="featured-link" target="_blank">
+                                Voir l'émission →
                             </a>
                         </div>
                     </div>
@@ -1085,13 +1102,6 @@
                         <p class="article-date">Magazine Culture</p>
                     </div>
 
-                    <div class="article-card" onclick="openModal('bfm')">
-                        <div class="article-source">BFM Business</div>
-                        <h3 class="article-title">Le business model innovant d'Hormur</h3>
-                        <p class="article-excerpt">BFM Business décrypte le modèle économique unique qui permet à Hormur de créer de la valeur pour tous les acteurs...</p>
-                        <p class="article-date">Émission économique</p>
-                    </div>
-
                     <div class="article-card" onclick="openModal('cnrs')">
                         <div class="article-source">CNRS - LIRIS</div>
                         <h3 class="article-title">L'innovation technologique au service de la culture</h3>
@@ -1122,7 +1132,7 @@
             <div class="cta-buttons">
                 <a href="https://hormur.com/signup-artist" class="cta-btn cta-btn-white">Je suis artiste</a>
                 <a href="https://hormur.com/signup-host" class="cta-btn cta-btn-outline">J'accueille chez moi</a>
-                <a href="https://hormur.com/signup-spectator" class="cta-btn cta-btn-outline">Je découvre des spectacles</a>
+                <a href="https://hormur.com/signup-spectators" class="cta-btn cta-btn-outline">Je découvre des spectacles</a>
             </div>
         </div>
     </section>
@@ -1145,18 +1155,6 @@
             <div class="modal-header">
                 <h2 class="modal-title">Le Figaro - Organiser un spectacle chez soi</h2>
                 <span class="close" onclick="closeModal('figaro')">&times;</span>
-            </div>
-            <div class="modal-body">
-                <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
-            </div>
-        </div>
-    </div>
-
-    <div id="modal-bfm" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">BFM Business - Le business model d'Hormur</h2>
-                <span class="close" onclick="closeModal('bfm')">&times;</span>
             </div>
             <div class="modal-body">
                 <iframe src="data:application/pdf;base64,JVBERi0xLjQKJcOkw7zDtsOk"></iframe>
@@ -1191,8 +1189,8 @@
     <script>
         // Scroll functions for videos
         function scrollVideos(direction) {
-            const container = document.querySelector('.featured-grid');
-            const scrollAmount = 450;
+            const container = document.querySelector('.featured-grid').parentElement;
+            const scrollAmount = 350;
             
             if (direction === 'left') {
                 container.scrollLeft -= scrollAmount;
@@ -1203,8 +1201,8 @@
 
         // Scroll functions for press articles
         function scrollPress(direction) {
-            const container = document.querySelector('.press-grid');
-            const scrollAmount = 380;
+            const container = document.querySelector('.press-grid').parentElement;
+            const scrollAmount = 310;
             
             if (direction === 'left') {
                 container.scrollLeft -= scrollAmount;
